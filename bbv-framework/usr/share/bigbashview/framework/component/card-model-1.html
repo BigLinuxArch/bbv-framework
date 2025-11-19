@@ -1,0 +1,74 @@
+<style>
+.card-model-1-top {
+    background: var(--surface);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    place-content: center;
+    place-items: flex-start;
+    height: 4em;
+    align-items: center;
+}
+
+.card-model-1-middle {
+    min-height: 11em;
+    padding-top: 1.5em;
+    flex-flow: wrap;
+    text-align: -webkit-left;
+}
+
+.card-model-1-bottom {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.card-model-1-text-icon {
+    font-size: 2em;
+    height: auto;
+    width: auto;
+}
+
+.card-model-1-icon {
+    margin-right: 10px;
+}
+</style>
+
+        <div class="card-model-1-top drag-area">
+            <div class="card-model-1-icon">
+                <!-- Display an icon if provided -->
+                <template x-if="icon">
+                    <img class="extra" :src="icon" alt="">
+                </template>
+                <!-- Display a text icon if provided -->
+                <template x-if="textIcon">
+                    <i x-html="textIcon" class="card-model-1-text-icon"></i>
+                </template>
+            </div>
+            <div class="card-model-1-title" tabindex="0">
+                <!-- Display the title -->
+                <h5 class="small center-align" x-html="title"></h5>
+            </div>
+        </div>
+        <div class="card-model-1-middle middle-align padding" tabindex="0">
+            <!-- Display the description -->
+            <p class="no-margin" x-html="description"></p>
+            <!-- Display a description2 if provided -->
+            <template x-if="description2">
+                <p class="no-margin" x-html="description2"></p>
+            </template>
+            <!-- Display a description3 if provided -->
+            <template x-if="description3">
+                <p class="no-margin" x-html="description3"></p>
+            </template>
+        </div>
+
+        <div class="card-model-1-bottom">
+            <button :class="buttonClass" @click="buttonAction">
+                <!-- Display an icon inside the button if provided -->
+                <template x-if="buttonIcon">
+                    <i x-html="buttonIcon"></i>
+                </template>
+                <!-- Display the button text -->
+                <span x-html="buttonText"></span>
+            </button>
+        </div>

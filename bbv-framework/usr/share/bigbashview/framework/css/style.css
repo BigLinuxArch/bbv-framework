@@ -1,0 +1,40 @@
+nav.extend,
+nav.extend:is(:hover, .active) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 0;
+  position: fixed;
+  color: var(--on-surface);
+  transform: none;
+  z-index: 20;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  block-size: auto;
+  inline-size: 15rem;
+  text-align: center;
+  padding: 0.5rem;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: var(--surface-variant);
+  gap: 0;
+}
+
+@media only screen and (min-width: 993px) {
+  nav.extend ~.responsive, .header-fixed-on-right {
+    padding-inline-start: 15rem;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  nav.m.left ~.responsive, .header-fixed-on-right {
+    padding-inline-start: 8rem;
+  }
+  nav.m.left, nav.m.right {
+    inline-size: 7rem !important;
+  }
+}
+

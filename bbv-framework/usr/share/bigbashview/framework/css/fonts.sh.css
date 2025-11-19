@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# This script generate CSS code based on the font settings in the user's kdeglobals file.
+
+# Extract the font settings from the kdeglobals file and format them as CSS properties.
+FONT_CSS=$(awk -F[,=] '/^ *font=/{ 
+    font=$2;
+    size=$3 "pt"; 
+    weight="400"; # Valor padrão
+    if ($0 ~ "[Tt]hin") weight="100"; # Thin
+    else if ($0 ~ "[Ll]ight") weight="200"; # Light
+    else if ($0 ~ "[Mm]edium") weight="500"; # Medium
+    else if ($0 ~ "[Bb]old") weight="600"; # Bold
+    else if ($0 ~ "[Bb]lack") weight="800"; # Black
+    style="normal";
+    if ($NF ~ /Italic$/) style="italic"; # Checa se termina com Italic
+    print "font-size: " size ";";
+    print "font-family: \"" font "\";";
+    print "font-weight: " weight ";";
+    print "font-style: " style ";";
+}' ~/.config/kdeglobals)
+
+# Output the generated CSS code.
+echo ':root,
+body {'
+echo $FONT_CSS
+echo }
