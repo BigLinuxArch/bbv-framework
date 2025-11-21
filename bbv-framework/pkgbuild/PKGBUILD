@@ -1,14 +1,14 @@
 # Maintainer: Bruno Goncalves <bigbruno@gmail.com>
 
 pkgname=bbv-framework
-pkgver=$(date +%Y_%m_%d)
-pkgrel=$(date +%H%M)
+pkgver=2025_04_12
+pkgrel=0059
 arch=('any')
 license=('MIT')
 depends=('bigbashview' 'geticons')
 url="https://github.com/biglinux/bbv-framework"
 pkgdesc="Graphical interfaces for Linux easier than ever"
-source=("git+https://github.com/biglinux/bbv-framework.git")
+source=("git+https://github.com/biglinux/bbv-framework.git#branch=stable-2025-04-11_21-52")
 md5sums=(SKIP)
 
 package() {
@@ -33,4 +33,3 @@ package() {
         cp -r "$InternalDir/opt" "$pkgdir/"
     fi
 }
-
