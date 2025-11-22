@@ -5,7 +5,7 @@ pkgver=2025_04_12
 pkgrel=0059
 arch=('any')
 license=('MIT')
-depends=('bigbashview' 'geticons')
+depends=('geticons')
 url="https://github.com/biglinux/bbv-framework"
 pkgdesc="Graphical interfaces for Linux easier than ever"
 source=("git+https://github.com/biglinux/bbv-framework.git#branch=stable-2025-04-11_21-52")
